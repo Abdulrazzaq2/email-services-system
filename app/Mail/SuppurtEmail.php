@@ -9,18 +9,24 @@ use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Mail\Mailables\Address;
 
 class SuppurtEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $name;
+    public $content;
+    public $subject;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
-    {
-        //
+    public function __construct($name, $content, $subject)
+    { //this will be passed to email view
+        $this->name    = $name;
+        $this->content = $content;
+        $this->subject = $subject;
+        
     }
 
     /**
@@ -29,9 +35,9 @@ class SuppurtEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            // from: new Address("abdrazaq20022@gmail.com", "Abdulrazaq mk"),
-            subject: 'Suppurt Email',
-            replyTo: new Address("abdrazaq20022002@gmail.com", "receiver rz"),
+            subject: $this->subject,
+            // from: new Address("", "Abdulrazaq mk"),
+            // replyTo: new Address("", "receiver rz"),
         );
     }
 
@@ -41,7 +47,7 @@ class SuppurtEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'email.welcome',
+            view: 'email.welcomeEmail', //the variables of constructor will be passed automaitcally to the view
         );
     }
 
