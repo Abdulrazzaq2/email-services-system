@@ -2,9 +2,9 @@
 
 return [
 
-    'providers' =>[
-        Spatie\Permission\PermissionServiceProvider::class,
-    ],
+    // 'providers' =>[
+    //     Spatie\Permission\PermissionServiceProvider::class,
+    // ],
 
     /*
     |--------------------------------------------------------------------------
