@@ -1,7 +1,8 @@
 @extends('template')
+<!-- using template.blade.php as a general layout for all pages -->
 
 @section("contents")
-<!-- checking if the user sent an email from a redirect action. -->
+<!-- checking if the user sent an email from a redirect action session. Then send an alert -->
 @if(session('res'))  
   <h2 class="big success">Good news. Email sent successfully.</h2>
 @endif

@@ -36,7 +36,7 @@ class SuppurtEmail extends Mailable
     {
         return new Envelope(
             subject: $this->subject,
-            // from: new Address("", "Abdulrazaq mk"),
+            // from: new Address("", "sender mk"),
             // replyTo: new Address("", "receiver rz"),
         );
     }
